@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agribio Trade Srl — Dal 2004 al servizio dell'agricoltura professionale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-900:#1f3b21;
+    --green-700:#2d5a2d;
+    --green-600:#3c7a3c;
+    --green-500:#4a8f4a;
+    --cream:#faf9f5;
+    --cream-2:#f2f1ea;
+    --ink:#1c2321;
+    --ink-soft:#4a524d;
+    --line:#e4e1d6;
+    --dark-900:#16211f;
+    --dark-800:#1c2b28;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600;line-height:1.15;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}
+  .container{max-width:1120px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    display:inline-block;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    font-weight:700;
+    text-transform:uppercase;
+    color:var(--green-600);
+    margin-bottom:14px;
+  }
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,249,245,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;max-width:1120px;margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:14px;}
+  .brand-mark{
+    width:48px;height:48px;border-radius:12px;
+    background:linear-gradient(155deg,var(--green-600),var(--green-900));
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .brand-mark svg{width:24px;height:24px;}
+  .brand-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;line-height:1.1;}
+  .brand-sub{font-size:11px;letter-spacing:.18em;color:var(--ink-soft);font-weight:600;}
+  .nav-links{display:flex;gap:32px;font-size:14.5px;font-weight:500;}
+  .nav-links a{color:var(--ink-soft);transition:color .2s;}
+  .nav-links a:hover{color:var(--green-700);}
+  .menu-btn{
+    display:none;width:44px;height:44px;border-radius:10px;border:1px solid var(--line);
+    background:#fff;align-items:center;justify-content:center;cursor:pointer;
+  }
+  @media(max-width:860px){
+    .nav-links{display:none;}
+    .menu-btn{display:flex;}
+  }
+
+  /* Hero */
+  .hero{position:relative;overflow:hidden;min-height:88vh;display:flex;align-items:flex-end;}
+  .hero-media{position:absolute;inset:0;z-index:0;}
+  .hero-media img{width:100%;height:100%;object-fit:cover;}
+  .hero-media::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(20,30,22,.35) 0%, rgba(18,26,20,.55) 45%, rgba(14,20,16,.88) 100%);
+  }
+  .hero-content{position:relative;z-index:1;color:#fff;padding:120px 24px 72px;max-width:1120px;margin:0 auto;width:100%;}
+  .badge{
+    display:inline-block;padding:9px 20px;border:1px solid rgba(255,255,255,.35);
+    border-radius:999px;font-size:12.5px;letter-spacing:.12em;font-weight:600;
+    text-transform:uppercase;margin-bottom:28px;color:#f2f1e8;
+  }
+  .hero h1{font-size:clamp(34px,5.4vw,58px);max-width:780px;margin-bottom:24px;color:#fff;}
+  .hero p{font-size:17px;max-width:620px;color:rgba(255,255,255,.88);margin-bottom:36px;}
+  .btn-row{display:flex;flex-wrap:wrap;gap:14px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:15px 28px;border-radius:999px;font-weight:600;font-size:15px;
+    transition:transform .15s ease, background .2s;
+    cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--green-600);color:#fff;}
+  .btn-primary:hover{background:var(--green-500);}
+  .btn-ghost{background:#fff;color:var(--ink);}
+  .btn-ghost:hover{background:#f2f1e8;}
+
+  section{padding:96px 0;}
+  .section-head{max-width:640px;margin-bottom:52px;}
+  .section-head h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:18px;}
+  .section-head p{color:var(--ink-soft);font-size:16.5px;}
+
+  /* Timeline */
+  .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:820px){.timeline{grid-template-columns:1fr;}}
+  .tl-card{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px 28px;
+  }
+  .tl-year{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--green-600);margin-bottom:10px;}
+  .tl-card h3{font-size:19px;margin-bottom:12px;}
+  .tl-card p{color:var(--ink-soft);font-size:15px;}
+
+  /* Pillars */
+  .pillars-wrap{background:var(--cream-2);}
+  .pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  @media(max-width:720px){.pillars{grid-template-columns:1fr;}}
+  .pillar-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:36px 32px;}
+  .icon-box{
+    width:56px;height:56px;border-radius:14px;background:#e7f1e3;
+    display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+  }
+  .icon-box svg{width:26px;height:26px;stroke:var(--green-600);}
+  .pillar-card h3{font-size:21px;margin-bottom:12px;}
+  .pillar-card p{color:var(--ink-soft);font-size:15px;}
+
+  /* Stats */
+  .stats{background:var(--green-700);color:#fff;padding:72px 0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;}
+  @media(max-width:820px){.stats-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:480px){.stats-grid{grid-template-columns:1fr;}}
+  .stat{border-left:2px solid rgba(255,255,255,.4);padding-left:22px;}
+  .stat .num{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,44px);font-weight:700;margin-bottom:6px;}
+  .stat .label{font-size:14.5px;color:rgba(255,255,255,.85);}
+
+  /* Partners */
+  .partners-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;
+  }
+  @media(max-width:760px){.partners-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:460px){.partners-grid{grid-template-columns:1fr;}}
+  .partner-cell{
+    padding:44px 24px;text-align:center;
+    border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .partner-cell:nth-child(3n){border-right:none;}
+  .partner-cell h3{font-size:22px;margin-bottom:8px;}
+  .partner-cell span{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;}
+  .partner-cell.muted{display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ink-soft);font-size:14.5px;}
+
+  /* Why choose - image */
+  .why-media{border-radius:18px;overflow:hidden;margin-bottom:56px;max-height:420px;}
+  .why-media img{width:100%;height:420px;object-fit:cover;}
+  .checklist{display:grid;grid-template-columns:1fr 1fr;gap:28px 40px;}
+  @media(max-width:760px){.checklist{grid-template-columns:1fr;}}
+  .check-item{display:flex;gap:16px;}
+  .check-mark{
+    flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--green-600);
+    display:flex;align-items:center;justify-content:center;margin-top:2px;
+  }
+  .check-mark svg{width:14px;height:14px;stroke:#fff;stroke-width:3;}
+  .check-item h4{font-size:16.5px;margin-bottom:6px;}
+  .check-item p{font-size:14.5px;color:var(--ink-soft);}
+
+  /* Founder */
+  .founder-wrap{background:var(--cream-2);}
+  .founder{max-width:760px;}
+  .founder .eyebrow{margin-bottom:20px;}
+  .founder h2{font-size:clamp(26px,3.2vw,36px);margin-bottom:6px;}
+  .founder .role{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:28px;}
+  .quote-mark{font-family:'Playfair Display',serif;font-size:56px;color:var(--green-500);line-height:1;margin-bottom:8px;}
+  .founder p.body{font-size:16.5px;color:var(--ink-soft);margin-bottom:20px;}
+
+  /* Mission Vision */
+  .mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(max-width:760px){.mv-grid{grid-template-columns:1fr;}}
+  .mv-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:40px 34px;}
+  .mv-card h3{font-size:24px;margin-bottom:16px;}
+  .mv-card p{color:var(--ink-soft);font-size:15.5px;}
+
+  /* Footer */
+  footer{background:var(--dark-800);color:#e9ece9;}
+  .footer-top{padding:72px 0 48px;border-bottom:1px solid rgba(255,255,255,.08);}
+  .footer-brand{display:flex;align-items:center;gap:14px;margin-bottom:22px;}
+  .footer-brand .brand-name{color:#fff;}
+  footer p.desc{max-width:560px;color:rgba(233,236,233,.72);font-size:15.5px;margin-bottom:28px;}
+  .social-row{display:flex;gap:12px;margin-bottom:8px;}
+  .social-row a{
+    width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.25);
+    display:flex;align-items:center;justify-content:center;transition:background .2s;
+  }
+  .social-row a:hover{background:rgba(255,255,255,.1);}
+  .social-row svg{width:18px;height:18px;stroke:#e9ece9;}
+
+  .footer-cols{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;padding:48px 0;}
+  @media(max-width:760px){.footer-cols{grid-template-columns:1fr;}}
+  footer h4{font-family:'Playfair Display',serif;font-size:20px;margin-bottom:22px;color:#fff;}
+  .contact-item{display:flex;gap:14px;margin-bottom:18px;font-size:15px;color:rgba(233,236,233,.85);}
+  .contact-item svg{width:19px;height:19px;stroke:var(--green-500);flex-shrink:0;margin-top:2px;}
+  .map-embed{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.12);}
+  .map-embed iframe{width:100%;height:280px;border:0;filter:grayscale(.15) contrast(1.05);}
+
+  .footer-bottom{
+    padding:26px 0;border-top:1px solid rgba(255,255,255,.08);
+    display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;
+    font-size:13.5px;color:rgba(233,236,233,.55);
+  }
+  .footer-bottom .links{display:flex;gap:22px;}
+  .footer-bottom a:hover{color:#fff;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M12 22V10M12 10C12 6 9 3 4 3C4 8 7 12 12 10ZM12 10C12 5.5 15.5 2 20 2C20 7.5 16.5 11 12 10Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="brand-name">Agribio Trade</div>
+        <div class="brand-sub">SRL</div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#azienda">L'azienda</a>
+      <a href="#solidita">Solidità</a>
+      <a href="#partner">Partner</a>
+      <a href="#perche">Perché sceglierci</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <button class="menu-btn" aria-label="Menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1c2321" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1600&auto=format&fit=crop" alt="Vigneto e campagna toscana al tramonto">
+  </div>
+  <div class="hero-content">
+    <span class="badge">Dal 2004 · Agribio Trade Srl</span>
+    <h1>Oltre vent'anni di esperienza al servizio dell'agricoltura professionale.</h1>
+    <p>Agribio Trade Srl opera nella distribuzione di mezzi tecnici per l'agricoltura professionale, affiancando aziende agricole e rivenditori con competenza agronomica, continuità operativa e partnership consolidate con i principali produttori internazionali. Una struttura solida, patrimonializzata e orientata allo sviluppo di lungo periodo.</p>
+    <div class="btn-row">
+      <a href="#azienda" class="btn btn-primary">Scopri l'azienda
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#partner" class="btn btn-ghost">I nostri Partner</a>
+    </div>
+  </div>
+</section>
+
+<section id="azienda">
+  <div class="container">
+    <span class="eyebrow" style="display:block;margin-bottom:16px;">L'azienda</span>
+    <div class="section-head" style="margin-bottom:56px;">
+      <h2>Un percorso imprenditoriale continuo, costruito nel tempo</h2>
+      <p>La storia di Agribio Trade è la storia di una competenza che si è trasmessa senza interruzioni: stesse persone, stessi valori, stessa attenzione al cliente agricolo. Ogni passaggio societario ha rafforzato la struttura, mantenendo intatto il patrimonio di relazioni e conoscenze tecniche.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-card">
+        <div class="tl-year">2004</div>
+        <h3>Fondazione Agribio</h3>
+        <p>Nasce Agribio, prima struttura commerciale dedicata alla fornitura di mezzi tecnici per le aziende agricole del territorio.</p>
+      </div>
+      <div class="tl-card">
+        <div class="tl-year">2007</div>
+        <h3>Nova Srl</h3>
+        <p>La crescita dei volumi porta alla costituzione di Nova Srl, con ampliamento della rete di fornitori e del portafoglio clienti.</p>
+      </div>
+      <div class="tl-card">
+        <div class="tl-year">2015</div>
+        <h3>Agribio Trade</h3>
+        <p>Viene costituita Agribio Trade Srl, che raccoglie know-how, relazioni commerciali e struttura operativa maturati nel decennio precedente.</p>
+      </div>
+      <div class="tl-card">
+        <div class="tl-year">2021</div>
+        <h3>Consolidamento attività</h3>
+        <p>Consolidamento della clientela, dei rapporti con i partner industriali e della struttura logistica.</p>
+      </div>
+      <div class="tl-card">
+        <div class="tl-year">2025</div>
+        <h3>Nuovo assetto societario</h3>
+        <p>Riorganizzazione societaria orientata alla continuità imprenditoriale, alla trasparenza e alla solidità patrimoniale.</p>
+      </div>
+      <div class="tl-card">
+        <div class="tl-year">2026</div>
+        <h3>Piano di crescita</h3>
+        <p>Avvio del piano di sviluppo: ampliamento dell'area commerciale nel Sud Italia e potenziamento del servizio di assistenza agronomica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="solidita" class="pillars-wrap">
+  <div class="container">
+    <span class="eyebrow" style="display:block;margin-bottom:16px;">Solidità</span>
+    <div class="section-head" style="margin-bottom:56px;">
+      <h2>I pilastri di un'impresa affidabile</h2>
+      <p>Quattro elementi definiscono il profilo economico e operativo di Agribio Trade e ne garantiscono la credibilità verso istituti di credito e partner commerciali.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="8" r="5"/><path d="M8.5 13.5L7 21l5-2.5 5 2.5-1.5-7.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Esperienza</h3>
+        <p>Oltre vent'anni di attività continuativa nella distribuzione di fertilizzanti, agrofarmaci e soluzioni per la difesa integrata, con una conoscenza diretta delle colture del territorio.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M18.36 5.64a4.5 4.5 0 010 6.36L12 18.36l-6.36-6.36a4.5 4.5 0 016.36-6.36L12 6l0 0a4.5 4.5 0 016.36-.36z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Continuità</h3>
+        <p>Gestione imprenditoriale stabile, clientela storica fidelizzata e rapporti pluriennali con i fornitori: nessuna interruzione operativa tra i diversi assetti societari.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Patrimonio</h3>
+        <p>Struttura logistica e magazzino di proprietà, dotazione strumentale adeguata e capitalizzazione coerente con i volumi gestiti: una base patrimoniale tangibile.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8M21 7v6h-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Sviluppo</h3>
+        <p>Piano di crescita 2026 orientato all'ampliamento commerciale nel Sud Italia, al rafforzamento dell'assistenza tecnica e all'integrazione di soluzioni sostenibili.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="container stats-grid">
+    <div class="stat"><div class="num">20+</div><div class="label">Anni di attività nel settore agricolo</div></div>
+    <div class="stat"><div class="num">€3,8 mln</div><div class="label">Storico fatturato del gruppo</div></div>
+    <div class="stat"><div class="num">2026</div><div class="label">Piano di sviluppo commerciale</div></div>
+    <div class="stat"><div class="num">100%</div><div class="label">Continuità del know-how aziendale</div></div>
+  </div>
+</div>
+
+<section id="partner">
+  <div class="container">
+    <span class="eyebrow" style="display:block;margin-bottom:16px;">Partnership</span>
+    <div class="section-head" style="margin-bottom:48px;">
+      <h2>I nostri Partner</h2>
+      <p>Collaboriamo con aziende leader del settore agricolo selezionando marchi riconosciuti a livello internazionale per qualità, innovazione e affidabilità.</p>
+    </div>
+    <div class="partners-grid">
+      <div class="partner-cell"><h3>Bayer</h3><span>Crop Science</span></div>
+      <div class="partner-cell"><h3>Koppert</h3><span>Biological Systems</span></div>
+      <div class="partner-cell"><h3>Sipcam Italia</h3><span>Agro Solutions</span></div>
+      <div class="partner-cell"><h3>Serbios</h3><span>Difesa Integrata</span></div>
+      <div class="partner-cell"><h3>Diachem</h3><span>Agrofarmaci</span></div>
+      <div class="partner-cell"><h3>CBC</h3><span>Biogard</span></div>
+      <div class="partner-cell"><h3>Biolchim</h3><span>Nutrizione Vegetale</span></div>
+      <div class="partner-cell"><h3>Gowan</h3><span>Crop Protection</span></div>
+      <div class="partner-cell"><h3>UPL</h3><span>OpenAg</span></div>
+      <div class="partner-cell"><h3>Haifa Group</h3><span>Specialty Nutrients</span></div>
+      <div class="partner-cell"><h3>Yara</h3><span>Crop Nutrition</span></div>
+      <div class="partner-cell muted">e altri fornitori qualificati del settore</div>
+    </div>
+  </div>
+</section>
+
+<section id="perche">
+  <div class="container">
+    <div class="why-media">
+      <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=1600&auto=format&fit=crop" alt="Magazzino logistico Agribio Trade">
+    </div>
+    <span class="eyebrow" style="display:block;margin-bottom:16px;">Perché sceglierci</span>
+    <div class="section-head" style="margin-bottom:48px;">
+      <h2>Perché scegliere Agribio</h2>
+      <p>Una struttura organizzata in ogni sua componente: commerciale, tecnica, logistica e patrimoniale.</p>
+    </div>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div><h4>Clientela consolidata</h4><p>Portafoglio di aziende agricole e rivenditori storici, con rapporti commerciali continuativi da oltre un decennio.</p></div>
+      </div>
+      <div class="check-item">
+        <div class="check-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div><h4>Fornitori qualificati</h4><p>Rapporti diretti con produttori internazionali e distributori primari, con condizioni di fornitura stabili.</p></div>
+      </div>
+      <div class="check-item">
+        <div class="check-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div><h4>Esperienza agronomica</h4><p>Competenza tecnica sulle colture del territorio e sui protocolli di difesa e nutrizione più efficaci.</p></div>
+      </div>
+      <div class="check-item">
+        <div class="check-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div><h4>Logistica operativa</h4><p>Gestione ordini, stoccaggio e consegne organizzate per garantire tempestività nei periodi di picco stagionale.</p></div>
+      </div>
+      <div class="check-item">
+        <div class="check-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div><h4>Struttura di proprietà</h4><p>Immobile e magazzino di proprietà: costi prevedibili e patrimonio aziendale tangibile.</p></div>
+      </div>
+      <div class="check-item">
+        <div class="check-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div><h4>Riduzione del rischio operativo</h4><p>Diversificazione di clienti e fornitori, controllo del credito e gestione prudente delle scorte.</p></div>
+      </div>
+      <div class="check-item">
+        <div class="check-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div><h4>Assistenza tecnica</h4><p>Supporto agronomico in campo e consulenza continuativa per ogni fase della coltura.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="founder-wrap">
+  <div class="container">
+    <div class="founder">
+      <span class="eyebrow">Il fondatore</span>
+      <h2>Dott. Michele Giannone</h2>
+      <div class="role">Fondatore e Amministratore</div>
+      <div class="quote-mark">&rdquo;</div>
+      <p class="body">Alla guida dell'attività fin dalla fondazione nel 2004, il Dott. Michele Giannone ha costruito il percorso imprenditoriale di Agribio Trade sulla competenza agronomica e sul rapporto diretto con l'imprenditore agricolo. Una presenza costante che ha garantito, nel passaggio tra i diversi assetti societari, la piena continuità del know-how tecnico e delle relazioni commerciali.</p>
+      <p class="body">La sua visione ha orientato l'azienda verso la selezione rigorosa dei fornitori, la qualità del servizio e una gestione prudente e patrimonializzata, presupposti della solidità che caratterizza oggi Agribio Trade Srl.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="eyebrow" style="display:block;margin-bottom:16px;">Mission &amp; Vision</span>
+    <div class="section-head" style="margin-bottom:48px;">
+      <h2>I valori che guidano il nostro lavoro</h2>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
+        <h3>Mission</h3>
+        <p>Fornire alle aziende agricole professionali mezzi tecnici di qualità certificata, affiancati da una consulenza agronomica competente e indipendente. Selezioniamo partner internazionali affidabili, promuoviamo soluzioni a ridotto impatto ambientale e garantiamo continuità di fornitura e assistenza, contribuendo alla redditività e alla sostenibilità delle imprese agricole che serviamo.</p>
+      </div>
+      <div class="mv-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Vision</h3>
+        <p>Diventare il punto di riferimento nel Sud Italia per la distribuzione di soluzioni agronomiche avanzate, riconosciuto per competenza tecnica, affidabilità economica e capacità di innovare. Vogliamo accompagnare la transizione dell'agricoltura verso modelli produttivi più efficienti e sostenibili, mantenendo saldi i valori di continuità imprenditoriale e rigore gestionale che ci contraddistinguono.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contatti">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M12 22V10M12 10C12 6 9 3 4 3C4 8 7 12 12 10ZM12 10C12 5.5 15.5 2 20 2C20 7.5 16.5 11 12 10Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="brand-name">Agribio Trade Srl</div>
+    </div>
+    <p class="desc">Distribuzione di mezzi tecnici per l'agricoltura professionale. Competenza agronomica, continuità operativa e solidità patrimoniale al servizio delle imprese agricole del Sud Italia.</p>
+    <div class="social-row">
+      <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4V8h4v1.5A5 5 0 0116 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+    </div>
+  </div>
+
+  <div class="container footer-cols">
+    <div>
+      <h4>Contatti</h4>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>Sede legale e operativa<br>Via dell'Agricoltura, 1 — Sud Italia</div>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 2.9a2 2 0 01-.5 2.1L8 9.9a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.9.3 1.9.5 2.9.6a2 2 0 011.8 2.1z"/></svg>
+        <div>+39 000 000 0000</div>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+        <div>info@agribiotrade.it</div>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6z"/></svg>
+        <div>PEC: agribiotrade@pec.it<br>P.IVA: 00000000000</div>
+      </div>
+    </div>
+    <div>
+      <h4>Dove siamo</h4>
+      <div class="map-embed">
+        <iframe loading="lazy" src="https://www.google.com/maps?q=Italia&output=embed" title="Mappa sede Agribio Trade"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <div>© 2026 Agribio Trade Srl — Tutti i diritti riservati.</div>
+    <div class="links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
